@@ -10,11 +10,11 @@ const controls = new SPLAT.OrbitControls(camera, canvas);
 
 async function main() {
     // Both files are served from web_data/ via the vite.config.js publicDir setting.
-    const weights: SPLAT.MLPWeights = await fetch("/weights.json").then(r => r.json());
+    const weights: SPLAT.MLPWeights = await fetch("weights.json").then(r => r.json());
 
     // Load raw features (no MLP bake yet) so we can re-decode each frame.
     const mlpData = await SPLAT.MLPLoader.LoadRawAsync(
-        "/scene.splat-mlp",
+        "scene.splat-mlp",
         (progress: number) => {
             statusEl.textContent = `Loading… ${Math.round(progress * 100)}%`;
         },
