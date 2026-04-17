@@ -15,7 +15,7 @@ async function main() {
     // Load raw features (no MLP bake yet) so we can re-decode each frame.
     const mlpData = await SPLAT.MLPLoader.LoadRawAsync(
         "/scene.splat-mlp",
-        (progress) => {
+        (progress: number) => {
             statusEl.textContent = `Loading… ${Math.round(progress * 100)}%`;
         },
     );
@@ -32,7 +32,6 @@ async function main() {
     // handleResize();
     // window.addEventListener("resize", handleResize);
 
-    let lastMoveTime = 0;
     let needsDecode = false;
     let lastCamX = NaN, lastCamY = NaN, lastCamZ = NaN;
 
@@ -40,11 +39,8 @@ async function main() {
         controls.update();
 
         const p = camera.position;
-        const now = performance.now();
-
         if (p.x !== lastCamX || p.y !== lastCamY || p.z !== lastCamZ) {
             lastCamX = p.x; lastCamY = p.y; lastCamZ = p.z;
-            lastMoveTime = now;
             needsDecode = false;
             console.log(`camera moved`);
         }

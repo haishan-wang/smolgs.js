@@ -77,7 +77,7 @@ class MLPLoader {
     ): Promise<SplatMLPData> {
         const res = await initiateFetchRequest(url, useCache);
         const buffer = await loadDataIntoBuffer(res, onProgress);
-        return SplatMLPData.Deserialize(buffer.buffer);
+        return SplatMLPData.Deserialize(buffer.buffer as ArrayBuffer);
     }
 }
 

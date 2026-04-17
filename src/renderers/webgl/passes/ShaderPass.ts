@@ -2,7 +2,7 @@ import { ShaderProgram } from "../programs/ShaderProgram";
 
 class ShaderPass {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    initialize(program: ShaderProgram) {}
+    initialize(_program: ShaderProgram) {}
     render() {}
     dispose() {}
 }
