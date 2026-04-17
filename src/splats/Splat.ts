@@ -94,6 +94,11 @@ class Splat extends Object3D {
         return this._data;
     }
 
+    set data(data: SplatData) {
+        this._data = data;
+        this.dispatchEvent(this._changeEvent);
+    }
+
     get selected() {
         return this._selected;
     }
