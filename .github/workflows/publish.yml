@@ -2,12 +2,14 @@ name: Publish Package to npmjs
 on:
     release:
         types: [published]
+env:
+    FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: mymindstorm/setup-emsdk@v11
+            - uses: mymindstorm/setup-emsdk@v14
             - name: Verify Emscripten
               run: emcc --version
             # Setup .npmrc file to publish to npm

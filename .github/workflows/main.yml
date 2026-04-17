@@ -6,6 +6,9 @@ on:
       - 'examples/mlp-viewer/**'
   pull_request:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   run-dev:
     runs-on: ubuntu-latest
